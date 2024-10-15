@@ -1,0 +1,8 @@
+这段内容是一段配置，用于限制 SSH 连接的行为，并指定当以 root 用户登录时返回特定提示信息。它的具体功能如下：
+
+no-port-forwarding: 禁止端口转发功能，防止通过 SSH 隧道来访问其他网络服务。
+no-agent-forwarding: 禁止 SSH 代理转发，避免使用客户端的 SSH 代理来进行身份验证。
+no-X11-forwarding: 禁止 X11 转发，防止通过 SSH 使用图形界面程序。
+command="echo 'Please login as the user \"centos\" rather than the user \"root\".';echo;sleep 10": 设置一个强制命令，当用户使用 root 登录时，系统会显示一条提示消息：“请以 'centos' 用户登录，而不是 'root'。”显示后系统会暂停 10 秒，然后断开连接。
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ...: 这是一段 SSH 公钥，用于身份验证。该公钥是与 aws_kor_origin 相关联的。
+总结来说，这段配置的目的是为了限制某些 SSH 功能，并在用户以 root 身份登录时显示提示信息，建议使用 centos 用户登录。
